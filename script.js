@@ -11,21 +11,31 @@ function userLogin(){
         let inputUser = prompt ("Ingrese su nombre de usuario:")
         let inputPassword = prompt ("Ingrese su password:")
 
+        loginAttemptsLeft=loginAttemptsLeft-1
+
+alert ("loginAttempts "+loginAttempts)
+alert ("loginAttemptsLeft "+loginAttemptsLeft)
+
         if(validateLogin(inputUser,inputPassword)){
             shoppingCart()
         }
-        else if(loginAttempts <= 3){
-            if((loginAttemptsLeft-1)==1){
-                let 
+        else if(loginAttempts < 3 && loginAttempts >= 1){
+            
+            if(loginAttemptsLeft==1){
+                warningAttempts = "Le queda 1 intento"
             }
-            alert("Los datos ingresados son incorrectos, revise usuario y contraseña e ingreselos nuevamente."+"\n"+"Recuerde que luego de 3 intentos su usuario sera bloqueado por su seguridad."+"\n"+"Le quedan "+parseInt(loginAttemptsLeft=loginAttemptsLeft-1)+" intentos")
+            else{warningAttempts="Le quedan "+loginAttemptsLeft+" intentos"
+            }
+            
+            alert("Los datos ingresados son incorrectos, revise usuario y contraseña e intentelo nuevamente."+"\n"+"Recuerde que luego de 3 intentos su usuario sera bloqueado por seguridad."+"\n"+warningAttempts)
             
             loginAttempts=loginAttempts+1
+            
         }
         else{alert("Alcanzo el numero maximo de intentos su usuario ha sigo bloqueado, por favor contactse con nuestro centro de ayuda")
             break
-        }
-    }        
+        }        
+    }
     while(loginAttempts <= 3)
 }
 
