@@ -17,7 +17,7 @@ function shoppingCart(){
         }
         else{
             if (serviceCode === null){
-                alert("No se agrego ningun item y se cerrara el carrito")
+                alert("No se agrego ningun item, se cerrara el carrito")
                 finishShopping = true
             }
             else {
