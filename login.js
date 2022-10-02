@@ -1,4 +1,3 @@
-
 const user="usuario1"
 const password="pass123"
 
@@ -13,11 +12,9 @@ function userLogin(){
 
         loginAttemptsLeft=loginAttemptsLeft-1
 
-alert ("loginAttempts "+loginAttempts)
-alert ("loginAttemptsLeft "+loginAttemptsLeft)
-
         if(validateLogin(inputUser,inputPassword)){
             shoppingCart()
+            break
         }
         else if(loginAttempts < 3 && loginAttempts >= 1){
             
@@ -32,7 +29,7 @@ alert ("loginAttemptsLeft "+loginAttemptsLeft)
             loginAttempts=loginAttempts+1
             
         }
-        else{alert("Alcanzo el numero maximo de intentos su usuario ha sigo bloqueado, por favor contactse con nuestro centro de ayuda")
+        else{alert("Alcanzo el numero maximo de intentos su usuario ha sigo bloqueado, por favor contactese con nuestro centro de ayuda")
             break
         }        
     }
@@ -47,37 +44,6 @@ function validateLogin(inputUser,inputPassword){
     else{
         return false
     }
-}
-
-//shoppingCart//
-function shoppingCart(){
-    alert("este es el shoppring cart")
-}
-
-//support - shoppingCart//
-function getServiceDescription(serviceCode){
-
-        let service;
-        switch(serviceCode){
-            case "1":
-                service = "Eventos"
-                break
-            case "2": 
-                service = "Estudio"
-                break
-            case "3":
-                service = "Corporativo"
-                break
-            case "4": 
-                service = "Viajes"
-                break   
-            case "5": 
-                service = "Cursos"
-                break
-            default:
-                service = false         
-        }
-        return service
 }
 
 // acciona los prompts
