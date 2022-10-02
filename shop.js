@@ -7,7 +7,7 @@ function shoppingCart(){
 
     while (!finishShopping){
 
-        let serviceCode = prompt("Ingrese codigo del servicio a contratar de la siguiente lista"+"\n"+"1 - Eventos"+"\n"+"2 - Estudio"+"\n"+"3 - Corporativo"+"\n"+"4 - Viajes"+"\n"+"5 - Cursos")
+        let serviceCode = prompt("Ingrese codigo del servicio a contratar de la siguiente lista"+"\n"+"1 - Eventos"+"\n"+"2 - Estudio"+"\n"+"3 - Corporativo"+"\n"+"4 - Viajes"+"\n"+"5 - Cursos"+"\n"+"Cuando no desee agregar mas items a su compra presione Cancel")
 
         let serviceDescription = getServiceDescription(serviceCode)
 
