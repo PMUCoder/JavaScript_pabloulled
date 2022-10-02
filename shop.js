@@ -2,79 +2,64 @@
 function shoppingCart(){
     alert("Bienvenido a la pagina de compra online del Estudio Fotografico PMU")
 
-    let lista = ""
-    let finalizar_carrito = false
+    let cart=""
+    let finishShopping=false
 
-    while (!finalizar_carrito){
+    while (!finishShopping){
 
-        let cod = prompt("Ingrese codigo de producto");
-        let producto = obtenerProducto(cod);
+        let serviceCode = prompt("Ingrese codigo del servicio a contratar de la siguiente lista"+"\n"+"1 - Eventos"+"\n"+"2 - Estudio"+"\n"+"3 - Corporativo"+"\n"+"4 - Viajes"+"\n"+"5 - Cursos")
 
-        if (producto){
+        let serviceDescription = getServiceDescription(serviceCode)
 
-            console.log("producto agregado con exito :"+producto);
-            lista += "\n"+producto;
-
-
-        }else{
-
-            if (cod === null){
-
-                finalizar_carrito = true ;
-
-
-            }else {
-
-
-                alert("Ingrese un codigo de producto valido");
-            
-            }
-
+        if (serviceDescription){
+            alert("El servicio seleccionado fue agregado con exito: "+serviceDescription)
+            cart += "\n"+serviceDescription
         }
-
+        else{
+            if (serviceCode === null){
+                finishShopping = true
+            }
+            else {
+                alert("Ingrese un codigo de producto valido")
+            }
+        }
     }
 
-    if (lista != ""){
-
-        let resp = confirm ("Desea concretar la compra de :"+lista);
-        if (resp){
-
-            alert("Gracias por comprar en nuestra tienda online");
-
-
+    if (cart != ""){
+        let checkout = confirm ("Revise que los items sean los correctos y confirme la compra: "+cart)
+        if (checkout){
+            alert("Gracias por confiar en nosotros.")
         }
-
-
     }
 }
 
 //support - shoppingCart//
 function getServiceDescription(serviceCode){
 
-        let service;
+        let service
         switch(serviceCode){
             case "1":
                 service = "Eventos"
+                servicePrice = 50.000
                 break
             case "2": 
                 service = "Estudio"
+                servicePrice = 40.000
                 break
             case "3":
                 service = "Corporativo"
+                servicePrice = 30.000
                 break
             case "4": 
                 service = "Viajes"
+                servicePrice = 100.000
                 break   
             case "5": 
                 service = "Cursos"
+                servicePrice = 10.000
                 break
             default:
                 service = false         
         }
         return service
 }
-
-// acciona los prompts
-document.addEventListener('DOMContentLoaded', function() {
-    userLogin()
-})
